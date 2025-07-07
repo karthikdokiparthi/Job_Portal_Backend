@@ -1,5 +1,6 @@
 package com.jobportal.Job_Portal.entity;
 
+import com.jobportal.Job_Portal.Enum.Role;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,7 +15,18 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private Enum role;
+    private Role role;
+
+    public User() {
+    }
+
+    public User(Long id, String name, String email, String password, Role role) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -48,11 +60,11 @@ public class User {
         this.password = password;
     }
 
-    public Enum getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Enum role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }
